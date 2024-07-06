@@ -1,0 +1,42 @@
+/* Base styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .about-page {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Headings */
+  h1, h2 {
+    margin-bottom: 15px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  /* Paragraphs */
+  p {
+    line-height: 1.5;
+  }
+  
+  /* Unordered lists */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

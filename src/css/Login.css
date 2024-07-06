@@ -1,0 +1,24 @@
+.logincontainer{
+    width:50%;
+    margin: 90px auto;
+    border: 1px solid rgb(200, 155, 155);
+    padding: 20px;
+    border-radius: 20px;
+}
+#forgot{
+    margin-left: 150px;
+    text-decoration: none;
+    color: rgb(209, 14, 14);
+}
+#reglink{
+    text-decoration: none;
+    color: rgb(209, 14, 14);
+}
+.loglink{
+    text-decoration: none;
+    color: rgb(42, 109, 17);
+
+}
+h6{
+    color: red;
+}

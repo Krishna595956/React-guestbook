@@ -1,0 +1,26 @@
+.buttons-container{
+    align-items: center;
+    justify-content: center;
+}
+.confirmButton{
+margin: 25px 480px;
+padding: 15px;
+width: 30%;
+background-color: rgb(237, 24, 24);
+color: white;
+font-size: 22px;
+border: 1px solid white;
+border-radius: 20px;
+transition: 0.5s;
+text-decoration: none;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+#btn-lks{
+    text-decoration: none;
+    color: white;
+}
+
