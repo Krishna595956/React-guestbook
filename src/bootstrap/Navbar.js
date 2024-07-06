@@ -20,10 +20,7 @@ export default function Navbar() {
           <Link className="nav-link" to="/about">About</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/contact">Contact</Link>
-        </li>        <li className="nav-item">
-          <Link className="nav-link" to="/feedbacks">Feedbacks</Link>
-        </li>
+          <Link className="nav-link" to="/contact">Contact</Link></li>
         <li>
           <Link to='/confirm'><button className='btn btn-danger' id='loginbutton'>Login</button></Link>
         </li>

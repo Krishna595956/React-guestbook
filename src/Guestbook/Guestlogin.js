@@ -53,9 +53,6 @@ export default function Login() {
     </div><br/>
 <div className='container'>
 <div className='row'>
-    <div className='col-6'>
-    <div><p>Don't have an account?  <Link to='/guestregister' id="reglink">Register</Link></p></div>
-    </div>
     <div className='col-6'><div><Link to='/email' id='forgot'>Forgot password?</Link></div></div>
   </div>
 </div>

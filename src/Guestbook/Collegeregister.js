@@ -140,16 +140,6 @@ export default function Guestregister() {
           </center>
       </div>
       </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div>
-            <p>
-              Already have an account? <Link to="/collegelogin" className="loglink">Login</Link>             
-            </p>
-          </div>
-        </div>
-      </div>
-      
     </div>
   );
 }

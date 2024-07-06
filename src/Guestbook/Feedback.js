@@ -36,7 +36,7 @@ export default function Login() {
   return (
     <div className="logincontainer">
       <center>
-        <h3 className="display-6">Guest Login</h3>
+        <h3 className="display-6">Submit Feedback</h3>
       </center>
       <form onSubmit={handleSubmit}>
         <label htmlFor="college">College:</label>

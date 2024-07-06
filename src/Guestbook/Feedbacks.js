@@ -16,9 +16,6 @@ export default function Feedbacks() {
     },[])
   return (
     <div>
-      {
-
-      }
       {data.length>0?
 <div className='container'>
 <table className="table table-striped table-hover m-4">

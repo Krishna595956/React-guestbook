@@ -41,20 +41,22 @@ export default function App() {
         <Route path='/adminlogin' element={<Adminlogin/>}/>
         <Route path='/forgot' element={<Reset/>}/>
         <Route path='/admindashboard' element={<Admindashboard/>}>
-        
+          <Route index element={<Feedbacks/>}/>
+          <Route path='/admindashboard/collegeregister' element={<Collegeregister/>}/>
+          <Route path='/admindashboard/guestregister' element={<Guestregister/>}/>
         </Route>
         <Route path='/userdashboard' element={<Userdashboard/>}>
-        
+        <Route index element={<Feedbacks/>}/>
         </Route>
         <Route path='/collegedashboard' element={<Collegedasboard/>}>
-        
+          <Route index element={<Feedbacks/>}/>
         </Route>
-        <Route path='/Guestdashboard' element={<Guestdashboard/>}>
-        
+        <Route path='/guestdashboard' element={<Guestdashboard/>}>
+            <Route index element={<Feedback/>}/>
+            <Route path='/guestdashboard/feedbacks' element={<Feedbacks/>}/>
         </Route>
         <Route path='/email' element={<Email/>}/>
         <Route path='/otp' element={<Otp/>}/>
-        <Route path='/submitfeedback' element={<Feedback/>}/>
         <Route path='/feedbacks' element={<Feedbacks/>}/>
       </Routes>
       </BrowserRouter>

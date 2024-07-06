@@ -306,11 +306,11 @@ try{
     const {college,category,feedback,token}=req.body;
     const user=jwt.verify(token,secret_key)
     if(user.data.usertype!='guests'){
-        return res.json({"response":"0"})
+        return res.json({"response":"0"})       //unauthorized access
     }
     else{
         await cluster.connect()
-        await feedbacks.insertOne({"by":user.data.useremail,"college":college,"category":category,"feedback":feedback})
+        await feed.insertOne({"by":user.data.useremail,"college":college,"category":category,"feedback":feedback})
         return res.json({"response":"1"})
     }
 }
@@ -326,17 +326,12 @@ app.post('/feedbacks',async (req,res)=>{
     await cluster.connect()
     if(user.data.usertype==="colleges"){
         const college=await colleges.findOne({"email":user.data.useremail})
-        const collegename=college.name;
-        const data=await feed.find({"college":collegename}).toArray()
+        console.log(college)
+        const data=await feed.find({"college":college.name}).toArray()
         return res.json({"response":data})
     }
     if(user.data.usertype==="guests"){
-        const guest=await guests.findOne({"email":user.data.useremail})
-        console.log(guest)
-        const guestname=guest.email;
-        console.log(guestname)
-        const data=await feed.find({"by":guestname}).toArray()
-        console.log("feedbacks")
+        const data=await feed.find({"by":user.data.useremail}).toArray()
         return res.json({"response":data})
     }
     else{

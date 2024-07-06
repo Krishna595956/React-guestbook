@@ -20,7 +20,7 @@ export default function Login() {
             }
             else if(responseData.response==="1"){
               localStorage.setItem('token',responseData.token)
-                navigate('/userdashboard.js')
+                navigate('/userdashboard')
             }
             else if(responseData.response==="2"){
                 setResult("Invalid credentials")

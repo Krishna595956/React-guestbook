@@ -1,9 +1,22 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
-export default function Collegedasboard() {
+export default function Userdashboard() {
   return (
-    <div>
-      <h1>This is college dashboard</h1>
-    </div>
+    <>
+      <div className='container-fluid'>
+        <div className='row'>
+            <div className='col-4'>
+                <nav>
+                  <li><Link to='/collegedashboard'>Feedbacks</Link></li>
+                  <li><Link to='/'>Logout</Link></li>
+                </nav>
+            </div>
+            <div className='col-8'>
+              <Outlet/>
+            </div>
+        </div>
+      </div>
+    </>
   )
 }
