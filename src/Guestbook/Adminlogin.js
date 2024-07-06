@@ -17,7 +17,7 @@ export default function Login() {
     });
     const responseData = resp.data;
     if (responseData["response"] === "1") {
-      localStorage.setItem('admintoken',responseData.token)
+      localStorage.setItem('token',responseData.token)
       navigate("/admindashboard");
     } else if (responseData["response"] === "0") {
       setResult("Invalid credentials");

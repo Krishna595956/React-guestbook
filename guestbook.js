@@ -3,7 +3,6 @@ const {MongoClient}=require('mongodb')
 const cors = require("cors");
 const nodemailer=require('nodemailer')
 const jwt=require('jsonwebtoken')
-const Cookies=require('cookie-parser')
 const otpgenerator=require('otp-generator')
 
 const url =
@@ -34,6 +33,17 @@ const client=nodemailer.createTransport({
     }
 })
 
+const adminOnly=(req,res,next)=>{
+    const token=req.body.token;
+    const decode=jwt.verify(token,secret_key)
+    if(decode.data.usertype==="admin"){
+        next();
+    }
+    else{
+        return res.json({"response":"4"})
+    }
+
+}
 
 app.post('/userregister',async (req,res)=>{
     try{
@@ -64,7 +74,7 @@ app.post('/userregister',async (req,res)=>{
     }
 })
 
-app.post('/guestregister',async (req,res)=>{
+app.post('/guestregister',adminOnly,async (req,res)=>{
     try{
         const {name,mobile,email,gender,password,rpassword,experience}=req.body;
     await cluster.connect();
@@ -93,8 +103,9 @@ app.post('/guestregister',async (req,res)=>{
     }
 })
 
-app.post('/collegeregister',async (req,res)=>{
+app.post('/collegeregister',adminOnly,async (req,res)=>{
     try{
+        console.log("collegeregister called")
         const {name,code,email,password,rpassword,address}=req.body;
     await cluster.connect();
     const response=await colleges.findOne({"email":email[0]})
@@ -217,7 +228,13 @@ app.post('/adminlogin',async (req,res)=>{
     try{
         const {email,password}=req.body;
         if(email==="admin@gmail.com" && password==="1234567890"){
-            const token=jwt.sign({data:'admin@gmail.com'},secret_key)
+            const payload={
+                data:{
+                    useremail:email,
+                    usertype:'admin'
+                }
+            }
+            const token=jwt.sign(payload,secret_key)
             return res.json({"response":"1","token":token})
         }
         else{

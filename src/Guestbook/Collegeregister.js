@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../css/Login.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -24,12 +23,17 @@ export default function Guestregister() {
       e.preventDefault();
       console.log(name,email,password,rpassword)
       const registerUser=async ()=>{
-        const response = await axios.post("http://localhost:5000/collegeregister",data);
+        const token=localStorage.getItem('token')
+        const response = await axios.post("http://localhost:5000/collegeregister",{name,code,email,password,rpassword,address,token});
         const responseData = response.data;
         console.log(responseData)
         if (responseData.response === "0") {
           setResponse("Passwords do not match");
-        } else if (responseData.response === "1") {
+        }
+        else if(responseData.response==="4"){
+            setResponse("Unauthorized access")
+        }
+        else if (responseData.response === "1") {
           alert('Registration successful')
           navigate("/collegelogin");
         }

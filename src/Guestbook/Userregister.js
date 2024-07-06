@@ -26,7 +26,8 @@ export default function Guestregister() {
     e.preventDefault();
     console.log(name,email,password,rpassword)
     const registerUser=async ()=>{
-      const response = await axios.post("http://localhost:5000/userregister",{ name, mobile, email, gender, password, rpassword, dob });
+      const token=localStorage.getItem('token')
+      const response = await axios.post("http://localhost:5000/userregister",{ name, mobile, email, gender, password, rpassword, dob,token });
       const responseData = response.data;
       console.log(responseData)
       if (responseData.response === "0") {
