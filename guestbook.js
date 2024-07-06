@@ -6,7 +6,7 @@ const jwt=require('jsonwebtoken')
 const otpgenerator=require('otp-generator')
 
 const url =
-  "mongodb+srv://sacet:1234567890@sacet.mq3py32.mongodb.net/?retryWrites=true&w=majority&appName=SACET";
+  "";
 const cluster = new MongoClient(url);
 const database = cluster.db("Guestbook");
 const users = database.collection("users");
