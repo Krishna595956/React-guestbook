@@ -22,19 +22,23 @@ export default function Feedbacks() {
       {data.length>0?
 <div className='container'>
 <table className="table table-striped table-hover m-4">
-        <tr>
+<div className='card'>
+<tr>
           <th>By</th>
           <th>College</th>
           <th>Category</th>
           <th>Feedback</th>
         </tr>
+</div>
         {data.map((feedback)=>(
+<div className='card'>
 <tr>
   <td>{feedback.by}</td>
   <td>{feedback.college}</td>
   <td>{feedback.category}</td>
   <td>{feedback.feedback}</td>
 </tr>
+</div>
 ))}
       </table>
 </div>
