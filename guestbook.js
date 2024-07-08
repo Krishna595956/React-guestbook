@@ -28,8 +28,7 @@ app.use(Cookies("krishna"))
 const client=nodemailer.createTransport({
     service:"gmail",
     auth:{
-        user:"kr4785543@gmail.com",
-        pass:"ipumzqnvfddcllxn"
+     
     }
 })
 
